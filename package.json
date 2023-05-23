@@ -1,6 +1,6 @@
 {
   "name": "grunt-contrib-icon2css",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Generates data uri from SVGs into (s)css",
 	"homepage": "https://github.com/pavelsommer/grunt-contrib-icon2css",
   "main": "tasks/icon2css.js",

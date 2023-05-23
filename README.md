@@ -14,6 +14,8 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('grunt-contrib-icon2css');
 ```
 
+### **Note that only SVG format is supported at the moment**
+
 ### Usage
 
 #### Example #1 (minimal usage)
