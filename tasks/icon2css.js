@@ -19,7 +19,6 @@ module.exports = function (grunt) {
 			.replaceAll(/}/g, "%7D")
 			.replaceAll(/</g, "%3C")
 			.replaceAll(/>/g, "%3E")
-			.replaceAll(/\s+/g, "%20")
 			.replaceAll(/&/g, "%26")
 			.replaceAll("|", "%7C")
 			.replaceAll("[", "%5B")
@@ -28,12 +27,13 @@ module.exports = function (grunt) {
 			.replaceAll("`", "%60")
 			.replaceAll(";", "%3B")
 			.replaceAll("?", "%3F")
-			.replaceAll(":", "%3A")
 			.replaceAll("@", "%40")
-			.replaceAll("=", "%3D")
-			.replaceAll("'", "%22")
-			.replaceAll("/", "%2F")
 			.replaceAll(",", "%2C");
+		//.replaceAll(/\s+/g, "%20")
+		//.replaceAll(":", "%3A")
+		//.replaceAll("=", "%3D")
+		//.replaceAll("'", "%22")
+		//.replaceAll("/", "%2F")
 	};
 
 	const encodeBase64 = (content) => content.toString("base64");
@@ -43,7 +43,7 @@ module.exports = function (grunt) {
 
 		const defaults = {
 			encode: "xml",
-			selector: ".$1",
+			selector: [".$1"],
 			customcss: "",
 			colors: [],
 		};
@@ -75,13 +75,11 @@ module.exports = function (grunt) {
 			options.colors.forEach((color) => {
 				inputContent =
 					typeof color.replace === "undefined"
-						? inputContent.replace(/fill="#\d{6}"/g, `fill="${color.color}"`)
+						? inputContent.replace(/fill="#.{6}"/g, `fill="${color.color}"`)
 						: inputContent.replaceAll(
 								`fill="${color.color}"`,
 								`fill="${color.replace}"`
 						  );
-
-				console.log(inputContent);
 			});
 
 			let outputContent = grunt.file.read(outputPath);
@@ -109,10 +107,10 @@ module.exports = function (grunt) {
 			outputContent +=
 				" {" +
 				options.customcss +
-				`background-image: url('data:image/svg+xml` +
+				`background-image: url("data:image/svg+xml` +
 				outputMethod +
 				encodedContent +
-				`');}`;
+				`");}`;
 
 			grunt.file.write(
 				outputPath,
