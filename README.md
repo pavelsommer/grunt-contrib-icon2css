@@ -1,0 +1,1 @@
+# grunt-contrib-icon2css
