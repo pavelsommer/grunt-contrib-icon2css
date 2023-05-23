@@ -28,12 +28,12 @@ module.exports = function (grunt) {
 			.replaceAll(";", "%3B")
 			.replaceAll("?", "%3F")
 			.replaceAll("@", "%40")
-			.replaceAll(",", "%2C");
-		//.replaceAll(/\s+/g, "%20")
-		//.replaceAll(":", "%3A")
-		//.replaceAll("=", "%3D")
-		//.replaceAll("'", "%22")
-		//.replaceAll("/", "%2F")
+			.replaceAll(",", "%2C")
+			.replaceAll(/\s+/g, "%20")
+			.replaceAll(":", "%3A")
+			.replaceAll("=", "%3D")
+			.replaceAll("'", "%22")
+			.replaceAll("/", "%2F");
 	};
 
 	const encodeBase64 = (content) => content.toString("base64");
