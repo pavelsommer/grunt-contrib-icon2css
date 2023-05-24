@@ -1,0 +1,26 @@
+{
+  "name": "grunt-contrib-icon2css",
+  "version": "0.0.7",
+  "description": "Generates data uri from SVGs into (s)css",
+  "homepage": "https://github.com/pavelsommer/grunt-contrib-icon2css",
+  "main": "tasks/icon2css.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "upload": "npm version patch --force && npm publish"
+  },
+  "dependencies": {
+    "PrettyCSS": "^0.3.19"
+  },
+  "keywords": [
+    "png",
+    "svg",
+    "css",
+    "data",
+    "icons",
+    "glyphs",
+    "uri",
+    "convert"
+  ],
+  "author": "Pavel Sommer",
+  "license": "MIT"
+}
